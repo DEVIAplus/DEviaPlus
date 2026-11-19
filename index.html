@@ -27,37 +27,3 @@
 </main><footer><a class="brand" href="#topo">Dēvia<span>+</span></a><span>Crer no que se vê, olhar pelo que se faz.</span><span>© <span id="year"></span> Dēvia+</span></footer>
 <script src="script.js" defer></script>
 </body></html>
-document.querySelectorAll('.node-btn').forEach((botao, indice) => {
-  botao.addEventListener('click', () => {
-    const conteudos = [
-      {
-        titulo: 'Território',
-        texto: 'O contexto onde se materializam relações sociais, económicas e espaciais.'
-      },
-      {
-        titulo: 'Dados',
-        texto: 'Indicadores e cartografia ajudam a identificar padrões, tendências e desigualdades.'
-      },
-      {
-        titulo: 'Pessoas',
-        texto: 'Experiências, necessidades e perceções tornam visíveis outras dimensões da realidade.'
-      },
-      {
-        titulo: 'Interpretação',
-        texto: 'A análise crítica relaciona evidências e experiências, reconhecendo contextos e contradições.'
-      }
-    ];
-
-    document.getElementById('panelIndex').textContent = `0${indice + 1} / 04`;
-    document.getElementById('panelTitle').textContent = conteudos[indice].titulo;
-    document.getElementById('panelText').textContent = conteudos[indice].texto;
-
-    document.querySelectorAll('.node-btn').forEach(b => {
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed', 'false');
-    });
-
-    botao.classList.add('active');
-    botao.setAttribute('aria-pressed', 'true');
-  });
-});
