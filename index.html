@@ -26,4 +26,35 @@
 <section class="contact" id="contacto"><p class="eyebrow">04 / CONTACTO E COLABORAÇÃO</p><h2>Há perguntas<br>que merecem <em>ser feitas.</em></h2><p>Uma ideia, um território, um problema de investigação? Vamos conversar.</p><p class="contact-note">O canal de contacto será disponibilizado em breve.</p><a href="#topo" class="back-top">Voltar ao início ↑</a></section>
 </main><footer><a class="brand" href="#topo">Dēvia<span>+</span></a><span>Crer no que se vê, olhar pelo que se faz.</span><span>© <span id="year"></span> Dēvia+</span></footer>
 <script src="script.js" defer></script>
+ <script>
+(() => {
+  const conteudos = [
+    ['Território', 'O contexto onde se materializam relações sociais, económicas e espaciais.'],
+    ['Dados', 'Indicadores e cartografia ajudam a identificar padrões, tendências e desigualdades.'],
+    ['Pessoas', 'Experiências, necessidades e perceções tornam visíveis outras dimensões da realidade.'],
+    ['Interpretação', 'A análise crítica relaciona evidências e experiências, reconhecendo contextos e contradições.']
+  ];
+
+  const botoes = document.querySelectorAll('.node-btn');
+  const numero = document.getElementById('panelIndex');
+  const titulo = document.getElementById('panelTitle');
+  const texto = document.getElementById('panelText');
+
+  botoes.forEach((botao, indice) => {
+    botao.addEventListener('click', () => {
+      numero.textContent = `0${indice + 1} / 04`;
+      titulo.textContent = conteudos[indice][0];
+      texto.textContent = conteudos[indice][1];
+
+      botoes.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+
+      botao.classList.add('active');
+      botao.setAttribute('aria-pressed', 'true');
+    });
+  });
+})();
+</script>
 </body></html>
